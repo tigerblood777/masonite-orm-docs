@@ -17,21 +17,21 @@ for user in users:
 
 |                          |                        |                        |
 | :----------------------- | :--------------------- | :--------------------- |
-| [all](#all)             | [avg](#avg)           | [chunk](#chunk)       |
-| [collapse](#collapse)   | [contains](#contains) | [count](#count)       |
-| [diff](#diff)           | [each](#each)         | [every](#every)       |
-| [filter](#filter)       | [first](#first)       | [flatten](#flatten)   |
-| [for_page](#for_page)   | [forget](#forget)     | [get](#get)           |
-| [group_by](#group_by)   | [implode](#implode)   | [is_empty](#is_empty) |
-| [last](#last)           | [map_into](#map_into) | [map](#map)           |
-| [max](#max)             | [merge](#merge)       | [pluck](#pluck)       |
-| [pop](#pop)             | [prepend](#prepend)   | [pull](#pull)         |
-| [push](#push)           | [put](#put)           | [random](#random)     |
-| [reduce](#reduce)       | [reject](#reject)     | [reverse](#reverse)   |
-| [serialize](#serialize) | [shift](#shift)       | [sort](#sort)         |
-| [sum](#sum)             | [take](#take)         | [to_json](#to_json)   |
-| [transform](#transform) | [unique](#unique)     | [where](#where)       |
-| [zip](#zip)             |
+| [all](#all)              | [avg](#avg)            | [chunk](#chunk)        |
+| [collapse](#collapse)    | [contains](#contains)  | [count](#count)        |
+| [diff](#diff)            | [each](#each)          | [every](#every)        |
+| [filter](#filter)        | [first](#first)        | [flatten](#flatten)    |
+| [for_page](#for_page)    | [forget](#forget)      | [get](#get)            |
+| [group_by](#group_by)    | [implode](#implode)    | [is_empty](#is_empty)  |
+| [last](#last)            | [map_into](#map_into)  | [map](#map)            |
+| [max](#max)              | [merge](#merge)        | [only](#only)          |
+| [pluck](#pluck)          | [pop](#pop)            | [prepend](#prepend)    |
+| [pull](#pull)            | [push](#push)          | [put](#put)            |
+| [random](#random)        | [reduce](#reduce)      | [reject](#reject)      |
+| [reverse](#reverse)      | [serialize](#serialize)| [shift](#shift)        |
+| [sort](#sort)            | [sum](#sum)            | [take](#take)          |
+| [to_json](#to_json)      | [transform](#transform)| [unique](#unique)      |
+| [where](#where)          | [zip](#zip)            |                        |
 
 ## all
 
@@ -312,6 +312,28 @@ collection.all() #== ['Desk', 'Chair', 'Bookcase', 'Door']
 ```
 
 Unlike most other collection methods, `merge` does not return a new modified collection; it modifies the collection it is called on.
+
+## only
+
+Retrieves only the items of the collection with the specified keys:
+
+```python
+collection = Collection(
+    {'product_id': 1, 'product': 'Desk', 'price': 199 }
+)
+
+only = collection.only('product') #== {'product': 'Desk'}
+```
+
+A list of keys can also be given:
+
+```python
+collection = Collection(
+    {'product_id': 1, 'product': 'Desk', 'price': 199 }
+)
+
+only = collection.only(['product', 'price']) #== {'product': 'Desk', 'price': 199}
+```
 
 ## pluck
 
